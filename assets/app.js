@@ -20,8 +20,23 @@ const arrayCuadrado = (arreglo) => {
 }
 arrayCuadrado([1,2,3,4])
 
+//E21S2.Another solution with validatios
 
-//E21S2 Arrow function and validations
+const devolverCuadrados = (arr=undefined) => {
+    if (arr===undefined) return console.warn('No ingesaste un arreglo')
+    if (!(arr instanceof Array)) return console.error('El valos que ingresaste no es un arreglo')
+    if (arr.length===0) return console.error('No puedes ingresar un arreglo vacio')
+    for (let num of arr) {
+        if(typeof num !== "number") return console.error('El arreglos solo puede contener numeros')
+    }
+
+    const newArr = arr.map(el => el*el)
+
+    return console.log(`Array original ${arr}, array al cuadrado ${newArr}`)
+}
+devolverCuadrados([2,3,"x"])
+
+//E21S2 Arrow function single
 const array2 = (arreglo) => {
 
         let cuadrados = arreglo.map(num =>  num*num)
@@ -47,6 +62,20 @@ const minMax = (arreglo) => {
 }
 minMax([1,2,3,4,5])
 
+//E22S2
+
+const arrayMinMax = (arr = undefined) => {
+    if (arr===undefined) return console.warn('No ingesaste un arreglo')
+    if (!(arr instanceof Array)) return console.error('El valos que ingresaste no es un arreglo')
+    if (arr.length===0) return console.error('No puedes ingresar un arreglo vacio')
+    for (let num of arr) {
+        if(typeof num !== "number") return console.error('El arreglos solo puede contener numeros')
+    }
+
+    return console.info(`Arreglo Original [${arr}]\nValor mayor ${Math.max(...arr)},\nel valor menor ${Math.min(...arr)}`)
+}
+arrayMinMax([4,5,2,9])
+
 //--------------------------------------------------------------------------------------------
 
 //E23S1.Solución Simple
@@ -63,3 +92,19 @@ const parImpar = (arreglo) => {
         Arreglo de impares[${impares}]`)
 }
 parImpar([1,2,3,4,5,6,7,8,9])
+
+//E23S2 validations
+const separarParesImpares = (arr = undefined) => {
+    if (arr===undefined) return console.warn('No ingesaste un arreglo')
+    if (!(arr instanceof Array)) return console.error('El valos que ingresaste no es un arreglo')
+    if (arr.length===0) return console.error('No puedes ingresar un arreglo vacio')
+    for (let num of arr) {
+        if(typeof num !== "number") return console.error('El arreglos solo puede contener numeros')
+    }
+
+    return console.info({ //like a object
+        pares:arr.filter(num => num%2 ===0),
+        impares:arr.filter(num => num%2 ===1)
+    })
+}
+separarParesImpares([11,12,21,22,44,53,67,72,81,84])
