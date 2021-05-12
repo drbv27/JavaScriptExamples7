@@ -12,7 +12,23 @@
 console.log("-----------------------------------------------------------------------------------")
 console.log("Ejercicio 21:")
 
+const arrayCuadrado = (arreglo) => {
+     let cuadrados = arreglo.map(function(num){
+        return num*num
+    })
+    console.log(`Array original ${arreglo}, array al cuadrado ${cuadrados}`)
+}
+arrayCuadrado([1,2,3,4])
 
+
+//E21S2 Arrow function and validations
+const array2 = (arreglo) => {
+
+        let cuadrados = arreglo.map(num =>  num*num)
+        
+        console.log(cuadrados)
+    }
+    array2([2,4,5,12])
 
 //--------------------------------------------------------------------------------------------
 
@@ -20,6 +36,16 @@ console.log("Ejercicio 21:")
 console.log("-----------------------------------------------------------------------------------")
 console.log("Ejercicio 22:")
 
+const minMax = (arreglo) => {
+    let max = arreglo[0]
+    let min = arreglo[0]
+    arreglo.forEach(element => {
+        if (element>max) max=element
+        if (element<min) min=element
+    });
+    console.log(`En el arreglo: [${arreglo}] el valor minimo es: ${min} y el valor maximo es: ${max}`)
+}
+minMax([1,2,3,4,5])
 
 //--------------------------------------------------------------------------------------------
 
@@ -27,3 +53,13 @@ console.log("Ejercicio 22:")
 console.log("-----------------------------------------------------------------------------------")
 console.log("Ejercicio 23:")
 
+const parImpar = (arreglo) => {
+    let pares=[]
+    let impares =[]
+    pares = arreglo.filter(num => num%2===0)
+    impares = arreglo.filter(num => num%2===1)
+    console.log(`Arreglo Original[${arreglo}], 
+        Arreglo de Pares[${pares}], 
+        Arreglo de impares[${impares}]`)
+}
+parImpar([1,2,3,4,5,6,7,8,9])
